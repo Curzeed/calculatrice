@@ -1,9 +1,9 @@
 const resultScreen  = document.querySelector("#resultScreen")
 var operator;
 var obj = {
-    left : 0,
-    right : 0,
-    operator : ''
+    left : [],
+    right : [],
+    operator
 };
 
 function recursiveCalc(obj){
@@ -11,6 +11,7 @@ function recursiveCalc(obj){
 
     const right = typeof obj.right === 'object'? recursiveCalc(obj.right) : obj.right;
 
+    console.log(obj);
     return calculate(left,right, operator);
 }
 
@@ -33,7 +34,7 @@ function calcul(valeur){
         case '+' :
             if (resultScreen.value.includes('+') === true) {
             } else {
-                operator = "+";
+                obj.operator = "+";
                 resultScreen.value += '+';
             }
             break;
@@ -41,7 +42,7 @@ function calcul(valeur){
         case '-' :
             if (resultScreen.value.includes('-') === true) {// nothing
             } else {
-                operator = "*";
+                obj.operator = "*";
                 resultScreen.value += '-';
             }
             break;
@@ -50,8 +51,7 @@ function calcul(valeur){
             if (resultScreen.value.includes('*') === true) {
                 // nothing
             } else {
-                operator = "*";
-                console.log(operateur)
+                obj.operator = "*";
                 resultScreen.value += '*';
             }
             break;
@@ -60,98 +60,108 @@ function calcul(valeur){
             if (resultScreen.value.includes('/') === true) {
                 // nothing
             } else {
-                operator = "/";
+                obj.operator = "/";
                 resultScreen.value += '/';
             }
             break;
 
         case 9 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(9);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(9);
+                resultScreen.value += 9;
                 break;
             } else {
-                obj.left.concat(9);
+                obj.left.push(9);
                 resultScreen.value += 9;
                 break;
             }
         case 8 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(8);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(8);
+                resultScreen.value += 8;
                 break;
             } else {
-                obj.left.concat(8);
+                obj.left.push(8);
                 resultScreen.value += 8;
                 break;
             }
         case 7 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(7);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(7);
+                resultScreen.value += 7;
                 break;
             } else {
-                obj.left.concat(7);
+                obj.left.push(7);
                 resultScreen.value += 7;
                 break;
             }
         case 6 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(6);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(6);
+                resultScreen.value += 6;
                 break;
             } else {
-                obj.left.concat(6);
+                obj.left.push(6);
                 resultScreen.value += 6;
                 break;
             }
         case 5 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(5);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(5);
+                resultScreen.value += 5;
                 break;
             } else {
-                obj.left.concat(5);
+                obj.left.push(5);
                 resultScreen.value += 5;
                 break;
             }
         case 4 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(4);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(4);
+                resultScreen.value += 4;
                 break;
             } else {
-                obj.left.concat(4);
+                obj.left.push(4);
                 resultScreen.value += 4;
                 break;
             }
         case 3 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(3);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(3);
+                resultScreen.value += 3;
                 break;
             } else {
-                obj.left.concat(3);
+                obj.left.push(3);
                 resultScreen.value += 3;
                 break;
             }
         case 2 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(2);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(2);
+                resultScreen.value += 2;
                 break;
             } else {
-                obj.left.concat(2);
+                obj.left.push(2);
                 resultScreen.value += 2;
                 break;
             }
         case 1 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(1);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(1);
+                resultScreen.value += 1;
                 break;
             } else {
-                obj.left.concat(1);
+                obj.left.push(1);
                 resultScreen.value += 1;
                 break;
             }
         case 0 :
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat(0);
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(0);
+                resultScreen.value += 0;
                 break;
             } else {
-                obj.left.concat(0);
+                obj.left.push(0);
                 resultScreen.value += 0;
                 break;
             }
@@ -159,11 +169,12 @@ function calcul(valeur){
             if (obj.right.includes('.') || obj.left.includes('.')) {
                 break;
             }
-            if (operator === '+' || operator === '-' || operator === '/' || operator || '*') {
-                obj.right.concat('.');
+            if (obj.operator === '+' || obj.operator === '-' || obj.operator === '/' || obj.operator || '*') {
+                obj.right.push(".");
+                resultScreen.value += '.';
                 break;
             } else {
-                obj.left.concat(".");
+                obj.left.push(".");
                 resultScreen.value += '.';
                 break;
             }
