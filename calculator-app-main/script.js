@@ -2,6 +2,7 @@ const resultScreen  = document.querySelector("#resultScreen")
 var  chiffre = [];
 var operateur = [];
 var result =  []; // document.querySelector('#resultScreen');
+var result2 ;
 // resultScreen.value
 function calcul(valeur){
 
@@ -17,7 +18,7 @@ function calcul(valeur){
 
         case '-' : if(resultScreen.value.includes('-') === true){// nothing
         }else{
-            result.push("-");
+            result.push("*");
             resultScreen.value += '-';
         }
         break;
@@ -108,14 +109,5 @@ function resultat(){
     // if (result.value.contains('+')){
     //
     // }
-    for (let i = 0; i < result.length; i++) {
 
-        if (result[i] === "/" || "*" ||"+" || "-"){
-            switch (result[i]){
-                case "/" : resu  ;break;
-            }
-        }else{
-            resu += result[i];
-        }
-    }
 }
