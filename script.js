@@ -6,11 +6,11 @@ var obj = {
 };
 function calculate(){
     switch (obj.operator){
-        case "*" : resultScreen.value = obj.left * obj.right;break;
+        case "*" : console.log(obj);resultScreen.value = obj.left * obj.right;break;
 
         case "/" : resultScreen.value = obj.left / obj.right;break;
 
-        case "+" : resultScreen.value = obj.left + obj.right;break;
+        case "+" : resultScreen.value = Number(obj.left) + Number(obj.right);break;
 
         case "-" : resultScreen.value = obj.left - obj.right;break;
 
